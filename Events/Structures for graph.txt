@@ -1,0 +1,33 @@
+
+    Structures for graph
+    
+    * Place
+     
+        can have "and" and "or" relationships with following transitions (see below in arcs) 
+        "and" relation discoverable when pairs can be executed in either order, but both are always there
+            example in log: {a, b, c}{a, c, b}
+            maximal pairs: {a, [b, c]} {b, c}{c, b}
+            counterexample: pair {a, [b, c]} alone implies that a is followed by either b or c, but doesn't contain parallelism       
+            chain for {a, [b, c]} alone is (a, [b|c]). When parallelism appears, chain is (a, [b&c]).
+     
+     
+    * Transition
+     
+        Local state change
+        Name is event name
+        Do not have "and" or "or" relationships. All arcs are required if transition fires
+        Has:
+			Name
+			One or more input arcs
+			One or more output arcs
+     
+     * Arc
+    
+        Arcs are directed edges
+        Arcs connect places to transitions and transitions to places. Can't have place-place or transition-transition arcs. 
+        Input:
+            Places can have multiple input arcs. These are different ways of reaching a place (OR relationship) 
+            Transitions can have multiple input arcs. The inputs must all be enabled before transition can fire (AND relationship)
+        Output:
+            Places can have multiple output arcs. These are different choices for transitions (OR relationship)
+            Transitions can have multiple output arcs. When a transition fires, all arcs are followed (AND relationship)      
