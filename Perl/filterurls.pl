@@ -8,8 +8,6 @@ open(INPUTFILE, '<C:\Users\v-betsyl\Documents\Illegal downloads\Illegal download
 
 while(<INPUTFILE>)
 	{
-	#my($line) = $_;
-	#chomp($line);
 	chomp;
 	my($query,$imps,$click,$algoclick,$url,$urlclick,$fill1,$fill2) = split("\t");
 

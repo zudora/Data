@@ -1,22 +1,17 @@
 use strict;
 use warnings;
 
-open(OUTFILE, '>C:\Users\v-betsy\OneDrive\Code_backup\Perl\Result_1291209cleaned.tsv') or die "Unable to open output file for write: $!";
+open(OUTFILE, '>C:\Users\v-betsy\Documents\Result_1291209cleaned2.tsv') or die "Unable to open output file for write: $!";
 
-open(INPUTFILE, '<C:\Users\v-betsy\OneDrive\Code_backup\Perl\Result_1291209 NASCAR drivers current testcopy.tsv') or die "Unable to open input file: $!";
-;
-
+open(INPUTFILE, '<C:\Users\v-betsy\Documents\Result_1291209 NASCAR drivers current testcopy.tsv') or die "Unable to open input file: $!";
 
 
 while(<INPUTFILE>)
 	{
-	
-
-    chomp;               # eat the \r\n at the end of the strin
+    chomp;               # eat the \r\n at the end of the string
     s/\t*$//;           # eat redundant \t at end
 
-	print OUTFILE "$_\n";
-		
+	print OUTFILE "$_\n";	
 	}
 
 close(INPUTFILE);
@@ -34,7 +29,7 @@ close(OUTFILE);
 	#print OUTFILE "$qvc\n";
 
 
-		#my $fdata;
+	#my $fdata;
 	#$fdata .= $_;
 	#$fdata =~ s/\t*$//g;
 	#	$fdata =~ s/\t+/\t/g;  
